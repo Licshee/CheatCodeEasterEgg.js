@@ -65,9 +65,11 @@
       code.shift(); // or you want an "if" here? no
       if(coll = secretCode[i]){ // if there is a secret code with this length...
         var shortCode = crc.crcFinal(code, crcInit).hex8();
-        if(shortCode in coll) // and we are sure it matches user input
+        if(shortCode in coll){ // and we are sure it matches user input
           this.eggIsFound && eggIsFound(shortCode, code, coll[shortCode]); // then we just pass everything we know to the callback function
           // you can change the callback's name if you know how to do
+          break;
+        }
       }
     }
   }
