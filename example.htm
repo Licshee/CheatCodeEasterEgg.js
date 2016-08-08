@@ -22,7 +22,7 @@
     document.onkeypress = function(eve) {
       var key = function(e) { return e.which || e.keyCode; } (eve || event);
       if((key & 0xffe0) == 0x60)
-        key &= 0x5f; // you can use String.fromCharCode(key).toLowerCase().charCodeAt(0) instead... if you would like
+        key &= 0x5f; // you can also use String.fromCharCode(key).toLowerCase().charCodeAt(0) instead... if you would like
 
       omgKeyPressed(key);
     }
