@@ -1,0 +1,31 @@
+<html>
+<head>
+  <script src="secret-crc.js"></script>
+</head>
+<body>
+<input type="text" readonly id="txtShow" style="width: 100%" />
+<button onclick="clipboardData.setData('text', txtShow.value)">Copy</button><span id="spanLength"></span>
+<input type="text" readonly id="txtCyc" style="width: 100%" />
+<button onclick="clipboardData.setData('text', txtCyc.value)">Copy</button>
+<script>
+var inputCode = [], crc = new crc32, crcInit = 0xFFFFFFFF;
+document.onkeypress = function(){
+  var key = event.keyCode;
+  if((key & 0xffe0) == 0x60) // comment this if you want a "onkeydown"
+    key &= 0x5f;
+
+  /* // you might wish to uncomment this if you are in a "onkeydown" case.
+  if(key == 116) // F5
+    inputCode.length = 0
+  else*/ if(key == 27)
+    inputCode.length = 0
+  else
+    inputCode.push(key);
+
+  txtShow.value = inputCode.join("-");
+  txtCyc.value = crc.crcFinal(inputCode, crcInit).hex8();
+  spanLength.innerText = inputCode.length;
+};
+</script>
+</body>
+</html>

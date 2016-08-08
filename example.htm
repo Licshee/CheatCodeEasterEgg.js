@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>-</title>
+  <script src="secret-crc.js"></script>
+</head>
+<body>
+  <script>
+    iCanSeeAnEgg("d12c0090", 4); // oops
+    iCanSeeAnEgg("570ad8b3", 6, function(s) { // nowaii
+      alert("you just typed: " + s);
+    });
+
+    function eggIsFound(shortCode, fullCode, content) {
+      if(typeof (content) == "function") {
+        content(fullCode);
+        return;
+      }
+
+      if(shortCode == "d12c0090")
+        alert("OOPZ!!1");
+    }
+
+    document.onkeypress = function(eve) {
+      var key = function(e) { return e.which || e.keyCode; } (eve || event);
+      if((key & 0xffe0) == 0x60)
+        key &= 0x5f; // you can use String.fromCharCode(key).toLowerCase().charCodeAt(0) instead... if you would like
+
+      omgKeyPressed(key);
+    }
+  </script>
+</body>
+</html>
