@@ -54,7 +54,7 @@
     } // esc
     inputCode.push(key);
     len = inputCode.length;
-    if(len < minLen) // keys user pressed less than the shortest secret code has
+    if(len < minLen) // keys user have input are less than the shortest entry has
       return;
     while(len > maxLen) // too many input data, cut it down
       inputCode.shift(), len--;
@@ -71,7 +71,7 @@
     }
   }
 
-  // change "omgKeyPressed" or "iCanSeeAnEgg" to something else if you wish
+  // change "omgKeyPressed" or "iCanSeeAnEgg" to something else if you like
   this.omgKeyPressed = userInput;
   this.iCanSeeAnEgg = addCode;
 }();
