@@ -60,7 +60,8 @@
       inputCode.shift(), len--;
 
     var code = [0].concat(inputCode), coll; // wasting one array element, but makes the logic clearly
-    for(var i = len; i >= minLen; i--){
+    var i = len + 1;
+    while(i --> minLen){
       code.shift(); // or you want an "if" here? no
       if(coll = secretCode[i]){ // if there is a secret code with this length...
         var shortCode = crc.crcFinal(code, crcInit).hex8();
