@@ -32,10 +32,10 @@
   };
   this.crc32 = crc32;
 
-  var secretCode = {}, minLen = Math.min(), maxLen = 0;
+  var cheatCodeMap = {}, minLen = Math.min(), maxLen = 0;
   function addCode(mc, l, v){
     var coll;
-    coll = secretCode[l] || (secretCode[l] = {});
+    coll = cheatCodeMap[l] || (cheatCodeMap[l] = {});
     coll[mc] = v;
 
     if(!isNaN(l)){
@@ -63,7 +63,7 @@
     var i = len + 1;
     while(i --> minLen){
       code.shift(); // or you want an "if" here? no
-      if(coll = secretCode[i]){ // if there is a secret code with this length...
+      if(coll = cheatCodeMap[i]){ // if there is a cheat code with this length...
         var shortCode = crc.crcFinal(code, crcInit).hex8();
         if(shortCode in coll){ // and we are sure it matches user input
           this.eggIsFound && eggIsFound(shortCode, code, coll[shortCode]); // then we just pass everything we know to the callback function
