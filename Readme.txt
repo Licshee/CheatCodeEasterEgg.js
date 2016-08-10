@@ -1,5 +1,5 @@
 
-This lib (secret-code-crc) provides you the ability to setup one or more "cheat code" style easter egg and prevent them from being decrypted.
+This lib (cheat-code-crc) provides you the ability to setup one or more "cheat code" style easter egg and prevent them from being decrypted.
 You can use it on your web pages, or applications based on JavaScript.
 You should NOT use it for security purpose.
 
